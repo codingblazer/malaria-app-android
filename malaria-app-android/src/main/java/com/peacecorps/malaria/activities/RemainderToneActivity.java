@@ -6,12 +6,17 @@ import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.peacecorps.malaria.R;
+
+import java.io.File;
+import java.net.URLConnection;
 
 /**
  * Created by DELL on 1/16/2016.
@@ -51,6 +56,12 @@ public class RemainderToneActivity extends Activity implements View.OnClickListe
                 break;
 
             case R.id.dialogButtonOKReminder:
+
+                if("".equals(path.getText()) || !isAudioFile())
+                {
+                    path.setError("Specify valid path");
+                    break;
+                }
                 SharedPreferences.Editor editor = getSharedPreferences("ringtone", MODE_PRIVATE).edit();
                 editor.putString("toneUri", audioFileUri.toString());
                 editor.commit();
@@ -71,9 +82,16 @@ public class RemainderToneActivity extends Activity implements View.OnClickListe
                 audioFileUri = data.getData();
                 MP3Path = audioFileUri.getPath();
                 path.setText(MP3Path);
-
-
             }
         }
+    }
+    public boolean isAudioFile() {
+        if(audioFileUri!=null)
+        {
+            String type=     getContentResolver().getType(audioFileUri);
+            boolean isAudio="audio/mpeg".equals(type);
+            return isAudio;
+        }
+        return false;
     }
 }
