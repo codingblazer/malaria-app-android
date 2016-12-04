@@ -69,6 +69,7 @@ public class ThirdAnalyticFragment extends Activity implements OnClickListener {
             cal = Calendar.getInstance();
             cal.setTime(dat);
             intmon= cal.get(Calendar.MONTH);
+            Log.e("sachin",""+intmon);
         }
         catch(ParseException e)
         {
@@ -76,6 +77,7 @@ public class ThirdAnalyticFragment extends Activity implements OnClickListener {
         }
         _calendar = Calendar.getInstance();
         year = _calendar.get(Calendar.YEAR);
+        Log.e("sachin0",""+intmon);
         _calendar.set(Calendar.MONTH,intmon+1);
         month = _calendar.get(Calendar.MONTH);
 
@@ -86,6 +88,8 @@ public class ThirdAnalyticFragment extends Activity implements OnClickListener {
        /** In above snippet, Calendar is set for Specific Month, not just the current month **/
 
         Log.d(tag, "Calendar Instance:= " + "Month: " + month + " " + "Year: "
+                + year);
+        Log.e("sachin1", "Calendar Instance:= " + "Month: " + month + " " + "Year: "
                 + year);
 
 
@@ -196,6 +200,9 @@ public class ThirdAnalyticFragment extends Activity implements OnClickListener {
             this.list = new ArrayList<String>();
             Log.d(tag, "==> Passed in Date FOR Month: " + month + " "
                     + "Year: " + year);
+            Log.e("sachin1", "Calendar Instance:= " + "Month: " + month + " " + "Year: "
+                    + year);
+
             Calendar calendar = Calendar.getInstance();
             setCurrentDayOfMonth(calendar.get(Calendar.DAY_OF_MONTH));
             setCurrentWeekDay(calendar.get(Calendar.DAY_OF_WEEK));
@@ -204,13 +211,16 @@ public class ThirdAnalyticFragment extends Activity implements OnClickListener {
             Log.d(tag, "CurrentDayOfMonth :" + getCurrentDayOfMonth());
 
             // Print Month
+            Log.e("sachin2",""+month+year);
             printMonth(month, year);
 
             // Find Number of Events
             eventsPerMonthMap = findNumberOfEventsPerMonth(year, month);
         }
         Intent intent = new Intent(getApplication(),DayFragmentActivity.class);
+
         private String getMonthAsString(int i) {
+            Log.e("sachin3",""+i);
             return months[i];
         }
 
