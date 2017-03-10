@@ -30,5 +30,19 @@
     <color name="lightest_brown">#ffe0cf79</color>
     <color name="transparent_cream">#89fffefa</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="selected_dot">#ffffff</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#B58B61</color>
+    <color name="dot_dark_screen2">#007A85</color>
+    <color name="dot_dark_screen3">#4658A0</color>
+    <color name="dot_dark_screen4">#32863A</color>
+    <!-- array inactive -->
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
 
 </resources>
